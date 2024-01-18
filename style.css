@@ -1,0 +1,299 @@
+
+/* FONT */
+@font-face {
+    font-family: poppins;
+    src: url(./font/poppins/Poppins-Regular.ttf);
+}
+/* UMUM */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: poppins;
+}
+
+/* Link */
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* Tombol kembali */
+.kembali{
+    height: 10vh;
+    width: 100vw;
+    background-color: cadetblue;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Tombol */
+button{
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+/* ------------------------------------------------------------------------------------------ */
+
+
+/* INDEKS.HTML */
+/* Bagian paling atas, peta */
+.logo{
+    height: 10vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.peta{
+    height: 50vh;
+    width: 100vw;
+    background-color: aqua;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+/* Informasi tentang angkot: Pemilihan rute dan info terkait rute tersebut */
+.informasi{
+    height: 80%;
+    width: 100%;
+    /* background-color: blueviolet; */
+    /* align-items: center;
+    justify-content: center; */
+
+    z-index: 2;
+}
+
+.pilihLokasi, .informasiAngkot{
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+}
+
+.pilihLokasi{
+    height: 10vh;
+    /* background-color: coral; */
+}
+.informasiAngkot{
+    height: 10vh;
+    /* background-color: orange; */
+}
+
+.tombol{
+    width: 100%;
+    height: 45px;
+    background: #2A558A;
+
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 1rem;
+    color: #FFF;
+    font-weight: 400;
+
+    margin: 10px 10px;
+}
+
+/* Pembayaran */
+.tombolBayar{
+    height: 10vh;
+    width: 100vw;
+    /* background-color: darkseagreen; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tombol:hover{
+    cursor: pointer;
+}
+
+/* Tim kita */
+.kredit{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* POPUP */
+.popup .latarPopup{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popup .konten{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background-color: #2A558A;
+    color: #FFF;
+    width: 80vw;
+    height: 80vh;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 15px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.popup .konten .pilihanKota{
+    position: absolute;
+    right: 50%;
+    top: 20px;
+    width: 100%;
+    height: 30%;
+    transform: translate(50%);
+    background: transparent;
+    padding-top: 40px;
+}
+
+.popup .konten .pilihanRute{
+    position: relative;
+    right: 50%;
+    top: 20%;
+    width: 100%;
+    height: 30%;
+    transform: translate(50%);
+    background: transparent;
+}
+
+
+
+.informasi{
+    font-size: 0.8rem;
+}
+
+.kontenBayar{
+    background: transparent;
+}
+
+.pembayaran{
+    height: 80%;
+    width: 100%;
+    background: transparent;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    top: 10px;
+}
+
+.metodeBayar{
+    width: 25vw;
+}
+
+@media screen and (min-width: 500px) {
+    .pembayaran{
+        height: 90%;
+        width: 100%;
+        background: transparent;
+    
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        align-items: center;
+        justify-content: center;
+    
+        padding-left: 40px;
+        overflow-y: auto;
+    }
+    .metodeBayar{
+        width: 80%;
+    }
+}
+
+.tombolPopup{
+    position: absolute;
+    right: 50%;
+    bottom: 20px;
+    width: 80%;
+    height: 3rem;
+    background-color: #558ace;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: translate(50%);
+}
+
+.popup.active .latarPopup{
+    display: block;
+}
+
+.popup.active .konten{
+    transform: translate(-50%,-50%) scale(1);
+    transition: all 300ms ease-in-out;
+}
+
+/* Ini khusus buat popup pembayaran, karena kalo digabung sama kode template gak bisa */
+.pilihanBayar{
+    background: transparent;
+    padding: 20px;
+    width: 100%;
+    height: 90%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bayar1{
+    display: none;
+}
+
+/* Buat masing2 scan QR */
+.kodeQR{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.kodeQR img{
+    width: 200px;
+    background: #FFF;
+    border-radius: 15%;
+}
+.namaQR{
+    position: absolute;
+    bottom: 20%;
+}
+
+/* ------------------------------------------------------------------------------------------ */

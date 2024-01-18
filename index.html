@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angkoot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/gambar/logoInfiniti.ico" type="image/x-icon">
+    <script src="./popup.js"></script>
+</head>
+<body>
+    <!-- TAMPILAN UTAMA -->
+    <div class="logo">
+        <img src="./gambar/logoAngkootPNG-removebg.png" width=250vw alt="">
+    </div>
+    <div class="peta">
+        <iframe src="https://maps.google.com/maps?q=jatinangor&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%"></iframe>
+    </div>
+    <div class="informasi">
+        <div class="pilihLokasi">
+            <button onclick="tampilkanLokasiRute()"  class="tombol" id="tombolLokasi">
+                Pilih Lokasi
+            </button>
+        </div>
+        <div class="informasiAngkot">
+            <button onclick="tampilkanInfo()" class="tombol" id="tombolInfo">
+                Informasi Angkot
+            </button>
+        </div>
+    </div>
+    <div class="tombolBayar">
+        <button onclick="tampilkanPembayaran()" class="tombol" id="tombolBayar">
+            Bayar
+        </button>
+    </div>
+    <div class="kredit">
+        By Dadang Sumedang     <!-- <a href="./metodeBayar.html">T E S</a> -->
+    </div>
+
+    <!-- POPUP LOKASI -->
+    <div class="popup" id="popupLokasi">
+        <div class="latarPopup"></div>
+        <div class="konten kota">
+            <div class="pilihanKota">
+                <!-- <label for="pilihanKota">Pilih Kota: </label> -->
+                <h2>Pilih Kota</h2>
+                <select name="pilihanKota" id="pilihKota">
+                    <option value="malang">Malang</option>
+                    <option value="bandung">Bandung</option>
+                    <option value="sumedang">Sumedang</option>
+                    <option value="banyuwangi">Banyuwangi</option>
+                </select>
+            </div>
+            <div class="pilihanRute">
+                <h2>Pilih Rute</h2>
+                <select name="pilihanRute" id="pilihRute">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <button onclick="simpanLokasiRute()" class="tombolPopup">Simpan Lokasi</button>
+        </div>
+    </div>
+
+    <!-- POPUP INFORMASI -->
+    <div class="popup" id="popupInfo">
+        <div class="latarPopup"></div>
+        <div class="konten info">
+            <div class="informasi">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, dolorum voluptate animi earum nihil facere aliquid ipsam laborum nisi veniam nostrum repellat esse velit voluptatem laudantium corporis.</p>
+            </div>
+            <button onclick="tutupInfo()" class="tombolPopup">Tutup</button>
+        </div>
+    </div>
+
+    <!-- POPUP PEMBAYARAN -->
+    <div class="popup" id="popupBayar">
+        <div class="latarPopup"></div>
+        <div class="konten bayar">
+            <div class="pembayaran">
+                <button onclick="pilihGOPAY()" id="pilihGOPAY" class="pilihanBayar">
+                    <img src="./gambar/logoBayar/logoGopay.png" alt="GOPAY" class="metodeBayar gopay">
+                </button>
+                <button onclick="pilihOVO()" id="pilihOVO" class="pilihanBayar">
+                    <img src="./gambar/logoBayar/logoOVO.png" alt="OVO" class="metodeBayar ovo">
+                </button>
+                <button onclick="pilihMANDIRI()" id="pilihMANDIRI" class="pilihanBayar">
+                <img src="./gambar/logoBayar/logoBankMandiri.png" alt="MANDIRI" class="metodeBayar mandiri">
+                </button>
+                <button onclick="pilihBNI()" id="pilihBNI" class="pilihanBayar">
+                    <img src="./gambar/logoBayar/logoBankBNI2.png" alt="BNI" class="metodeBayar bni">
+                </button>
+                <button onclick="pilihBSI()" id="pilihBSI" class="pilihanBayar">
+                    <img src="./gambar/logoBayar/logoBankBSI.png" alt="BSI" class="metodeBayar bsi">
+                </button>
+                <button onclick="pilihBRI()" id="pilihBRI" class="pilihanBayar">
+                    <img src="./gambar/logoBayar/logoBankBRI.png" alt="BRI" class="metodeBayar bri">
+                </button>
+            </div>
+            <button onclick="konfirmasiPilihBayar()" class="tombolPopup bayar1" id="bayar1">Pilih Metode Bayar</button>     
+        </div>
+    </div>
+
+    <!-- POPUP BUAT MASING2 PEMBAYARAN (QR) -->
+    <!-- GOPAY -->
+    <div class="popup" id="bayarGOPAY">
+        <div class="latarPopup"></div>
+        <div class="konten">
+            <div class="kodeQR">
+                <img src="./gambar/logoQR.png" alt="">
+            </div>
+            <div class="namaQR">
+                GOPAY
+            </div>
+            <button onclick="scanQR()" class="tombolPopup bayarGOPAY" id="bayarGOPAY">Scan QR</button>     
+        </div>
+    </div>
+    <!-- OVO -->
+    <div class="popup" id="bayarOVO">
+        <div class="latarPopup"></div>
+        <div class="konten">
+            <div class="kodeQR">
+                <img src="./gambar/logoQR.png" alt="">
+            </div>
+            <div class="namaQR">
+                OVO
+            </div>
+            <button onclick="scanQR()" class="tombolPopup bayarOVO" id="bayarOVO">Scan QR</button>     
+        </div>
+    </div>
+    <!-- MANDIRI -->
+    <div class="popup" id="bayarMANDIRI">
+        <div class="latarPopup"></div>
+        <div class="konten">
+            <div class="kodeQR">
+                <img src="./gambar/logoQR.png" alt="">
+            </div>
+            <div class="namaQR">
+                MANDIRI
+            </div>
+            <button onclick="scanQR()" class="tombolPopup bayarMANDIRI" id="bayarMANDIRI">Scan QR</button>     
+        </div>
+    </div>
+    <!-- BNI -->
+    <div class="popup" id="bayarBNI">
+        <div class="latarPopup"></div>
+        <div class="konten">
+            <div class="kodeQR">
+                <img src="./gambar/logoQR.png" alt="">
+            </div>
+            <div class="namaQR">
+                BNI
+            </div>
+            <button onclick="scanQR()" class="tombolPopup bayarBNI" id="bayarBNI">Scan QR</button>     
+        </div>
+    </div>
+    <!-- BSI -->
+    <div class="popup" id="bayarBSI">
+        <div class="latarPopup"></div>
+        <div class="konten">
+            <div class="kodeQR">
+                <img src="./gambar/logoQR.png" alt="">
+            </div>
+            <div class="namaQR">
+                BSI
+            </div>
+            <button onclick="scanQR()" class="tombolPopup bayarBSI" id="bayarBSI">Scan QR</button>     
+        </div>
+    </div>
+    <!-- BRI -->
+    <div class="popup" id="bayarBRI">
+        <div class="latarPopup"></div>
+        <div class="konten">
+            <div class="kodeQR">
+                <img src="./gambar/logoQR.png" alt="">
+            </div>
+            <div class="namaQR">
+                BRI
+            </div>
+            <button onclick="scanQR()" class="tombolPopup bayarBRI" id="bayarBRI">Scan QR</button>     
+        </div>
+    </div>
+</body>
+</html>
